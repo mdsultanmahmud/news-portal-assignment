@@ -30,20 +30,31 @@ const loadElementOfCat = (catId) => {
 }
 
 const displayCatagoriesElement = elements =>{
+    const catagoryElementContainer = document.getElementById('catagory-element-container')
+    catagoryElementContainer.innerHTML = ''
     elements.forEach(element =>{
-        const catagoryElementContainer = document.getElementById('catagory-element-container')
         catagoryElementContainer.innerHTML +=  `
-        <div class="card my-3 mx-auto" style="max-width: 540px;">
+        <div class="card my-3 mx-auto" style="max-width: 80%">
         <div class="row g-0">
-            <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+            <div class="col-md-4 col-sm-12">
+                <img src="${element.thumbnail_url}" class="img-fluid w-100" alt="...">
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-12">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">${element.title}</h5>
+                    <p class="card-text">${(element.details).slice(0, 200)}</p>
+                    <div class="card-text d-flex justify-content-between align-items-center mt-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>img</div>
+                            <div class="ms-2">
+                                <p>name:</p>
+                                <p>date:</p>
+                            </div>
+                        </div>
+                        <div>akhan view</div>
+                        <div>ratings</div>
+                        <div>icon</div>
+                    </div>
                 </div>
             </div>
         </div>
