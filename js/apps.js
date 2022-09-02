@@ -39,22 +39,25 @@ const displayCatagoriesElement = elements =>{
             <div class="col-md-4 col-sm-12">
                 <img src="${element.thumbnail_url}" class="img-fluid w-100" alt="...">
             </div>
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-8 col-sm-12 p-2">
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
                     <p class="card-text">${(element.details).slice(0, 200)}</p>
                     <div class="card-text d-flex justify-content-between align-items-center mt-4">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div>img</div>
-                            <div class="ms-2">
-                                <p>name:</p>
-                                <p>date:</p>
+                            <div><img src="${element.author.img}" class="img-fluid me-3" style="width:80px; height:80px; border-radius:50%;" alt=""></div>
+                            <div>
+                                <p><strong>${(element.author.name) ? element.author.name : 'No Author Found'}</strong></p>
+                                <p class="text-muted">${(element.author.published_date) ? (element.author.published_date) : 'No Date Found'}</p>
                             </div>
                         </div>
-                        <div>akhan view</div>
-                        <div>ratings</div>
-                        <div>icon</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <i class="fa-sharp fa-solid fa-eye me-2"></i>
+                            <strong>${(element.total_view)? (element.total_view): 'No View Found'}</strong>
+                        </div>
+                        <div><i class="fa-solid fa-arrow-right text-danger"></i></div>
                     </div>
+                    <button class="btn btn-danger d-block mx-auto px-4 py-2 my-2">Show Details</button>
                 </div>
             </div>
         </div>
