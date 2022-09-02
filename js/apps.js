@@ -57,19 +57,27 @@ const displayCatagoriesElement = elements =>{
                         </div>
                         <div><i class="fa-solid fa-arrow-right text-danger"></i></div>
                     </div>
-                    <button class="btn btn-danger d-block mx-auto px-4 py-2 my-2">Show Details</button>
+                    <button onclick="loadDetailsData('${element._id}')" class="btn btn-danger d-block mx-auto px-4 py-2 my-2">Show Details</button>
                 </div>
             </div>
         </div>
         </div>
         `
-
-        console.log(element)
     })
 }
 
 
+const loadDetailsData = newsId =>{
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+    fetch(url)
+    .then(news => news.json())
+    .then(newsDetails => showNewsDetails(newsDetails.data[0]))
+}
 
+
+const showNewsDetails = news =>{
+    console.log(news)
+}
 
 
 
