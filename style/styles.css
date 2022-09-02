@@ -5,4 +5,10 @@
 #catagory li{
     padding:0.5rem 1rem;
     font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+.active-li{
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.6rem;
 }
