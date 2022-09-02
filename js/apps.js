@@ -77,7 +77,16 @@ const loadDetailsData = newsId =>{
 // showing details for every data 
 
 const showNewsDetails = news => {
-  
+  const modalBody = document.getElementById('modal-body')
+  console.log(news)
+  modalBody.innerHTML = `
+  <img src="${news.thumbnail_url}" style="width:150px; height:150px; border-radius:50%;" class="d-block mx-auto my-3" alt="">
+  <p><strong>Category-Id: </strong>${(news.category_id) ? (news.category_id) : 'No ID Found'}<p>
+  <p><strong>Author: </strong>${(news.author.name) ? (news.author.name) : 'No Author Found'}<p>
+  <p><strong>Release: </strong>${(news.author.published_date) ? (news.author.published_date) : 'No Date Found'}<p>
+  <p><strong>View: </strong>${(news.total_view) ? (news.total_view) : 'No View'}<p>
+  <p><strong>Ratings: </strong>${(news.rating.number) ? (news.rating.number) : 'No Ratings Given'}<p>
+  `
 }
 
 
