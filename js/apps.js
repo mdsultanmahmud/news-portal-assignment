@@ -57,7 +57,7 @@ const displayCatagoriesElement = elements =>{
                         </div>
                         <div><i class="fa-solid fa-arrow-right text-danger"></i></div>
                     </div>
-                    <button onclick="loadDetailsData('${element._id}')" class="btn btn-danger d-block mx-auto px-4 py-2 my-2">Show Details</button>
+                    <button  onclick="loadDetailsData('${element._id}')" class="btn btn-danger d-block mx-auto px-4 py-2 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Details</button>
                 </div>
             </div>
         </div>
@@ -74,9 +74,10 @@ const loadDetailsData = newsId =>{
     .then(newsDetails => showNewsDetails(newsDetails.data[0]))
 }
 
+// showing details for every data 
 
-const showNewsDetails = news =>{
-    console.log(news)
+const showNewsDetails = news => {
+  
 }
 
 
