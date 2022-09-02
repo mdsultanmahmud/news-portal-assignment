@@ -1,0 +1,8 @@
+#catagory{
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+#catagory li{
+    padding:0.5rem 1rem;
+    font-weight: 700;
+}
