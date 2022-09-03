@@ -28,6 +28,8 @@ const displayCatagory = catagories => {
 
 // loading data of catagory element 
 const loadElementOfCat = (catId) => {
+    // spinner show here 
+    document.getElementById('spinner').classList.remove('d-none')
     fetch(`https://openapi.programming-hero.com/api/news/category/${catId}`)
     .then(res => res.json())
     .then(data => displayCatagoriesElement(data.data))
@@ -37,6 +39,8 @@ const loadElementOfCat = (catId) => {
 }
 
 const displayCatagoriesElement = elements =>{
+    // spinner close here 
+    document.getElementById('spinner').classList.add('d-none')
     const catagoryElementContainer = document.getElementById('catagory-element-container')
     catagoryElementContainer.innerHTML = ''
     document.getElementById('item-count-container').classList.remove('d-none')
