@@ -23,14 +23,14 @@ const displayCatagory = catagories => {
     })
 }
 
-
+// two function call at once 
 const spinAndDataLoad =(id, isTrue) =>{
     loadElementOfCat(id)
     spin(isTrue)
 }
 
 
-
+// spinner when data are loading 
 const spin = isTrue => {
     if (isTrue) {
 
@@ -54,6 +54,8 @@ const loadElementOfCat = (catId) => {
 
 }
 
+
+// sort data based on total_view 
 const sortedData = items =>{
     // here I sort data from all items based on total_view
     const unSortedData = []
@@ -75,7 +77,7 @@ const sortedData = items =>{
     
 }
 
-
+// display total element of any category 
 const displayCatagoriesElement = elements => {
     
     const catagoryElementContainer = document.getElementById('catagory-element-container')
@@ -96,10 +98,10 @@ const displayCatagoriesElement = elements => {
             <div class="col-md-8 col-sm-12 p-2">
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
-                    <p class="card-text">${(element.details).slice(0, 200)}</p>
-                    <div class="card-text d-flex justify-content-between align-items-center mt-4">
+                    <p class="card-text">${(element.details).slice(0, 200)}...</p>
+                    <div class="card-text d-flex justify-content-between align-items-center mt-4 flex-wrap">
                         <div class="d-flex justify-content-between align-items-center">
-                            <div><img src="${element.author.img}" class="img-fluid me-3" style="width:80px; height:80px; border-radius:50%;" alt=""></div>
+                            <div><img src="${element.author.img}" class="img-fluid me-3" style="width:60px; height:60px; border-radius:50%;" alt=""></div>
                             <div>
                                 <p><strong>${(element.author.name) ? element.author.name : 'No Author Found'}</strong></p>
                                 <p class="text-muted">${(element.author.published_date) ? (element.author.published_date) : 'No Date Found'}</p>
@@ -109,9 +111,8 @@ const displayCatagoriesElement = elements => {
                             <i class="fa-sharp fa-solid fa-eye me-2"></i>
                             <strong>${(element.total_view) ? (element.total_view) : 'No View Found'}</strong>
                         </div>
-                        <div><i class="fa-solid fa-arrow-right text-danger"></i></div>
+                        <div><i style="cursor:pointer;" class="fa-solid fa-arrow-right text-danger " onclick="loadDetailsData('${element._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></div>
                     </div>
-                    <button  onclick="loadDetailsData('${element._id}')" class="btn btn-danger d-block mx-auto px-4 py-2 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Details</button>
                 </div>
             </div>
         </div>
@@ -122,7 +123,7 @@ const displayCatagoriesElement = elements => {
     spin(false)
 }
 
-
+// details data loading 
 const loadDetailsData = newsId => {
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`
     fetch(url)
@@ -149,8 +150,6 @@ const showNewsDetails = news => {
     <p><strong>Ratings: </strong>${(news.rating.number) ? (news.rating.number) : 'No Ratings Given'}<p>
   `
 }
-
-
 
 
 
