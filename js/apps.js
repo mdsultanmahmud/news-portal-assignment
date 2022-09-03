@@ -14,22 +14,29 @@ loadCatagroyData()
 // display all catagory name in website 
 
 const displayCatagory = catagories => {
+    const catagoryContainer = document.getElementById('catagory-container')
     catagories.forEach(catagory => {
         const catagoryName = catagory.category_name
-        const catagoryContainer = document.getElementById('catagory-container')
         catagoryContainer.innerHTML += `
-        <li onclick="loadElementOfCat('${catagory.category_id}')">${catagoryName}</li>
+        <li  onclick="loadElementOfCat('${catagory.category_id}')"><a onclick="spin('true')">${catagoryName}</a></li>
         `
     })
-
 }
 
 
+const spin = isTrue =>{
+    if(isTrue){
 
-// loading data of catagory element 
+        document.getElementById('spinner').classList.remove('d-none')
+    }else{
+        document.getElementById('spinner').classList.add('d-none')
+
+    }
+}
+
 const loadElementOfCat = (catId) => {
-    // spinner show here 
-    document.getElementById('spinner').classList.remove('d-none')
+    const catagoryElementContainer = document.getElementById('catagory-element-container')
+    catagoryElementContainer.innerHTML = ''
     fetch(`https://openapi.programming-hero.com/api/news/category/${catId}`)
     .then(res => res.json())
     .then(data => displayCatagoriesElement(data.data))
@@ -39,12 +46,9 @@ const loadElementOfCat = (catId) => {
 }
 
 const displayCatagoriesElement = elements =>{
-    // spinner close here 
-    document.getElementById('spinner').classList.add('d-none')
     const catagoryElementContainer = document.getElementById('catagory-element-container')
-    catagoryElementContainer.innerHTML = ''
     document.getElementById('item-count-container').classList.remove('d-none')
-    document.getElementById('item-count').innerText = `${elements.length} items found for`
+    document.getElementById('item-count').innerText = `${elements.length} items found in this category`
     elements.forEach(element =>{
         catagoryElementContainer.innerHTML +=  `
         <div class="card my-3 mx-auto" style="max-width: 80%">
@@ -77,6 +81,8 @@ const displayCatagoriesElement = elements =>{
         </div>
         `
     })
+    // spinner loading off here 
+    spin(false)
 }
 
 
