@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">News</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="blogs/blog.html">Blog</a>
@@ -54,9 +54,29 @@
             <h3 id="item-count" class="p-3 text-danger fw-bold "></h3>
         </section>
         <!-- catagory section ends here  -->
+        <!-- sorted by view -->
+        <section>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="text-danger me-2 text-uppercase">Sorted By View: </p>
+                    <div>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Default</option>
+                            <option value="1">View</option>
+                            <option value="2">Id</option>
+                          </select>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-danger px-4 py-2 m-2">Today’s Pick</button>
+                    <button class="btn btn-danger px-4 py-2 m-2">Trending</button>
+                </div>
+            </div>
+        </section>
         <!-- catagory elements section starts here  -->
         <section>
-            <div id="catagory-element-container" class=""></div>
+            <!-- all category here  -->
+            <div id="catagory-element-container"></div>
 
 
             <!-- Modal -->

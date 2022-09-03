@@ -18,10 +18,17 @@ const displayCatagory = catagories => {
     catagories.forEach(catagory => {
         const catagoryName = catagory.category_name
         catagoryContainer.innerHTML += `
-        <li  onclick="loadElementOfCat('${catagory.category_id}')"><a onclick="spin('true')">${catagoryName}</a></li>
+        <li onclick="spinAndDataLoad('${catagory.category_id}', 'true')">${catagoryName}</li>
         `
     })
 }
+
+
+const spinAndDataLoad =(id, isTrue) =>{
+    loadElementOfCat(id)
+    spin(isTrue)
+}
+
 
 
 const spin = isTrue => {
@@ -34,22 +41,48 @@ const spin = isTrue => {
     }
 }
 
+
 const loadElementOfCat = (catId) => {
     const catagoryElementContainer = document.getElementById('catagory-element-container')
     catagoryElementContainer.innerHTML = ''
     fetch(`https://openapi.programming-hero.com/api/news/category/${catId}`)
         .then(res => res.json())
-        .then(data => displayCatagoriesElement(data.data))
+        .then(data => sortedData(data.data))
         .catch(error => {
             console.log(error)
         })
+
 }
 
+const sortedData = items =>{
+    // here I sort data from all items based on total_view
+    const unSortedData = []
+    for(const item of items){
+        unSortedData.push(item.total_view)
+    }
+    const sortedArrayOfData = unSortedData.sort((a,b) => b - a)
+    // find out main items based on  total_view and sort item
+    const elements = []
+    for(i = 0; i<sortedArrayOfData.length; i++){
+        for(j = 0; j<items.length; j++){
+            if(items[j].total_view === sortedArrayOfData[i]){
+                elements.push(items[j])
+                break
+            }
+        }
+    }
+    console.log(elements)
+    
+}
+
+
 const displayCatagoriesElement = elements => {
+    
     const catagoryElementContainer = document.getElementById('catagory-element-container')
     document.getElementById('item-count-container').classList.remove('d-none')
-    document.getElementById('item-count').innerText = `${elements.length} items found in this category`
+    document.getElementById('item-count').innerText = `${elements.length > 0 ? elements.length : 'No News'} items found in this category`
     elements.forEach(element => {
+        console.log(element.total_view)
         catagoryElementContainer.innerHTML += `
         <div class="card my-3 mx-auto" style="max-width: 80%">
         <div class="row g-0">
