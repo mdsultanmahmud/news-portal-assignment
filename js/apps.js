@@ -18,6 +18,7 @@ const displayCatagory = catagories => {
         <li onclick="loadElementOfCat('${catagory.category_id}')">${catagoryName}</li>
         `
     })
+
 }
 
 
@@ -32,6 +33,8 @@ const loadElementOfCat = (catId) => {
 const displayCatagoriesElement = elements =>{
     const catagoryElementContainer = document.getElementById('catagory-element-container')
     catagoryElementContainer.innerHTML = ''
+    document.getElementById('item-count-container').classList.remove('d-none')
+    document.getElementById('item-count').innerText = `${elements.length} items found for`
     elements.forEach(element =>{
         catagoryElementContainer.innerHTML +=  `
         <div class="card my-3 mx-auto" style="max-width: 80%">
@@ -78,7 +81,6 @@ const loadDetailsData = newsId =>{
 
 const showNewsDetails = news => {
   const modalBody = document.getElementById('modal-body')
-  console.log(news)
   modalBody.innerHTML = `
   <img src="${news.thumbnail_url}" style="width:150px; height:150px; border-radius:50%;" class="d-block mx-auto my-3" alt="">
   <p><strong>Category-Id: </strong>${(news.category_id) ? (news.category_id) : 'No ID Found'}<p>
