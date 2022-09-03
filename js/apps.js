@@ -71,7 +71,7 @@ const sortedData = items =>{
             }
         }
     }
-    console.log(elements)
+    displayCatagoriesElement(elements)
     
 }
 
@@ -79,10 +79,14 @@ const sortedData = items =>{
 const displayCatagoriesElement = elements => {
     
     const catagoryElementContainer = document.getElementById('catagory-element-container')
+    // show item count dom 
     document.getElementById('item-count-container').classList.remove('d-none')
     document.getElementById('item-count').innerText = `${elements.length > 0 ? elements.length : 'No News'} items found in this category`
+    // check data empty or not 
+    if(elements.length === 0){
+        catagoryElementContainer.innerHTML= `<h2 class="text-center my-5"> No Data Found</h2>`
+    }
     elements.forEach(element => {
-        console.log(element.total_view)
         catagoryElementContainer.innerHTML += `
         <div class="card my-3 mx-auto" style="max-width: 80%">
         <div class="row g-0">
