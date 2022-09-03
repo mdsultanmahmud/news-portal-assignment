@@ -4,6 +4,9 @@ const loadCatagroyData = () => {
     fetch('https://openapi.programming-hero.com/api/news/categories')
     .then(res => res.json())
     .then(data => displayCatagory(data.data.news_category))
+    .catch(error =>{
+        console.log(error)
+    })
 }
 
 loadCatagroyData()
@@ -28,6 +31,9 @@ const loadElementOfCat = (catId) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${catId}`)
     .then(res => res.json())
     .then(data => displayCatagoriesElement(data.data))
+    .catch(error =>{
+        console.log(error)
+    })
 }
 
 const displayCatagoriesElement = elements =>{
@@ -75,6 +81,9 @@ const loadDetailsData = newsId =>{
     fetch(url)
     .then(news => news.json())
     .then(newsDetails => showNewsDetails(newsDetails.data[0]))
+    .catch(error =>{
+        console.log(error)
+    })
 }
 
 // showing details for every data 

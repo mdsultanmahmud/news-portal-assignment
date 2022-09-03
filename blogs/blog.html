@@ -1,12 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs about recent situation</title>
+    <!-- bootstrap css cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
+
 <body>
     <h3 class="text-center text-danger p-3">Our Blogs</h3>
+    <!-- question and answer section starts here  -->
+    <section>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Differences among var , let , const
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <pre>
+        <strong>var: </strong>
+            i)The scope of a var variable is functional scope.
+            ii)It can be updated and re-declared into the scope.
+            iii)It can be declared without initialization.
+            iv)It can be accessed without initialization as its default value is “undefined”.
+
+        <strong>let:</strong>
+            i)The scope of a let variable is block scope.
+            ii)It can be updated but cannot be re-declared into the scope.
+            iii)It can be declared without initialization.
+            iv)It cannot be accessed without initialization otherwise it will give ‘referenceError’.
+
+        <strong>const:</strong>
+            i)The scope of a const variable is block scope.
+            ii)It cannot be updated or re-declared into the scope.
+            iii)It cannot be declared without initialization.
+            iv)It cannot be accessed without initialization, as it cannot be declared without
+            initialization.
+
+                  </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                       Difference between arrow function and regular function
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                       <pre>
+        <strong>Syntax:</strong> A programmer can get the same result as regular functions by writing
+         a few lines of code using arrow functions
+        <strong>This Keyword:</strong> Inside of a regular JavaScript function, this value is dynamic.
+         The dynamic context means that the value of this depends on how the function is invoked.The
+        value of this inside an arrow function remains the same throughout the lifecycle of the
+        function and is always bound to the value of this in the closest non-arrow parent function
+        which means No matter how or where being executed, this value inside of an arrow function
+        always equals this value from the outer function.
+        <strong>new Keyword:</strong> Regular functions are constructible and callable. They can be 
+        called using the new keyword.But, the arrow functions are only callable and not constructible,
+        i.e., arrow functions can never be used as constructor functions.
+
+                       </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Why you use template string?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <pre>
+        i)We insert a variable or expression by adding a dollar sign $ and curly braces {} into the
+         string `${variable}`. This is much better than the alternative in old JavaScript where we
+         had to concatenate a strin
+        ii)Another great feature of template strings is that we can have strings with multiple lines
+         for better code readability.
+        iii)Template strings can be nested in each other.Template strings allow us to nest regular
+        strings or template strings within template strings.
+        iv)With template strings, we can add something called tags in front of a template string
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bootstrap js cdn link  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
